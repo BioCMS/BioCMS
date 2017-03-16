@@ -35,8 +35,8 @@ class HomeController extends Controller
     {
         $apiContext = new ApiContext(
             new OAuthTokenCredential(
-                'AXq-XpRWY0sS2HLlMcIUxUapw73R676WmX3cELjRxp7zOqPbymolCSn-Lf1W3zyQC75j1GIJiRDoS76z',
-                'EK4_IAuGXs48wlJ9N3yRMUBr4vTYIl4RscVfyNs6R_s_43cC5H8kyazEKmxpsdX2GmstUNgJhMt-kSmR'
+                'ARHBJsX4QGnmqw2X0s_nURyoJYM0sP6aIDJM7cpMZiiy_8QCT1y6ZCHnKj8hctzS2i3H_LPjKma1U3Zv',
+                'EEUYrG_jIqDzzOOZSigtYPeeiYJTp2G6fqu6hsXy4KaiNomZn3Uql0KAbsvN-PUipmkOX-PPdbfh7Wcf'
             )
         );
 
@@ -61,7 +61,7 @@ class HomeController extends Controller
             ->setSubtotal('10.50');
 
         $amount = new Amount();
-        $amount->setCurrency('USD')->setTotal('17.50');
+        $amount->setCurrency('USD')->setTotal('17.50')->setDetails($details);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -100,13 +100,13 @@ class HomeController extends Controller
     public function checkInvoice() {
         $apiContext = new ApiContext(
             new OAuthTokenCredential(
-                'AXq-XpRWY0sS2HLlMcIUxUapw73R676WmX3cELjRxp7zOqPbymolCSn-Lf1W3zyQC75j1GIJiRDoS76z',
-                'EK4_IAuGXs48wlJ9N3yRMUBr4vTYIl4RscVfyNs6R_s_43cC5H8kyazEKmxpsdX2GmstUNgJhMt-kSmR'
+                'ARHBJsX4QGnmqw2X0s_nURyoJYM0sP6aIDJM7cpMZiiy_8QCT1y6ZCHnKj8hctzS2i3H_LPjKma1U3Zv',
+                'EEUYrG_jIqDzzOOZSigtYPeeiYJTp2G6fqu6hsXy4KaiNomZn3Uql0KAbsvN-PUipmkOX-PPdbfh7Wcf'
             )
         );
 
         try {
-            $orderResult = Payment::get('PAY-1KK263486S429580SLDFIITA', $apiContext);
+            $orderResult = Payment::get('PAY-3KU3327671913491HLDFMRCA', $apiContext);
 
             echo '<pre>';
             print_r($orderResult);
